@@ -1,0 +1,37 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Custom Toolbar</span>
+    <span class="example-spacer"></span>
+    <button mat-button  matTooltip="Home page" routerLink="/"><mat-icon>home</mat-icon></button>
+    <button mat-button  matTooltip="Login" routerLink="/login"><mat-icon>group</mat-icon></button>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-sidenav-container class="example-container" color="primary">
+  <mat-sidenav #sidenav [mode]="mode.value" class="barra">
+    <button
+      class="cerrar"
+      mat-button
+      mat-icon-buttom
+      (click)="sidenav.toggle()"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+
+    <button mat-raised-button routerLink='/colchones' routerLinkActive="active">
+      <mat-icon>share</mat-icon>
+      <span>Colchones</span>
+    </button>
+    <button mat-raised-button>
+      <mat-icon>share</mat-icon>
+      <span>Somieres</span>
+    </button>
+
+  </mat-sidenav>
+  <mat-sidenav-content style="height: 92vh;">
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>navigate_next</mat-icon>
+    </button>
+
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

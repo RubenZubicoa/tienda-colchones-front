@@ -1,0 +1,12 @@
+<mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>{{product.title}}</mat-card-title>
+    </mat-card-header>
+    <img mat-card-image [src]="product.image" alt="Photo of a Shiba Inu">
+    <mat-card-content>
+      <h5>{{product.price + '€'}}</h5>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button>Details</button>
+    </mat-card-actions>
+  </mat-card>
