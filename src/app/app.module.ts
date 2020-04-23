@@ -11,13 +11,14 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ProductsComponent } from "./components/products/products.component";
 import { SigninComponent } from "./components/signin/signin.component";
 import { MattressComponent } from "./components/mattress/mattress.component";
-import { MattressDetailComponent } from "./components/mattress-detail/mattress-detail.component";
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { ProductCardComponent } from './components/products/product-card/product-card.component';
 
 import { AuthGuard } from './auth.guard';
 // TOKEN INTERCEPTOR
 import { TokenInterceptorService } from './services/token-interceptor.service';
+import { ProductsListComponent } from './components/products-list/products-list.component';
+import { ProductDetailComponent } from './components/products/product-detail/product-detail.component';
 
 
 @NgModule({
@@ -26,9 +27,10 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
     ProductsComponent,
     SigninComponent,
     MattressComponent,
-    MattressDetailComponent,
     SidenavComponent,
     ProductCardComponent,
+    ProductsListComponent,
+    ProductDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,6 +48,9 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
       useClass: TokenInterceptorService,
       multi: true
     }
+  ],
+  entryComponents:[
+    ProductDetailComponent
   ],
   bootstrap: [AppComponent],
 })

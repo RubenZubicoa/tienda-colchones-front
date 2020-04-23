@@ -17,4 +17,8 @@ export class MattressService {
   getSomeMattresses():Observable<Mattress[]>{
     return this.http.get<Mattress[]>(`${this.API_URI}`)
   }
+
+  getMattresses():Observable<Mattress[]>{
+    return this.http.get<Mattress[]>(`${this.API_URI}/private`)
+  }
 }

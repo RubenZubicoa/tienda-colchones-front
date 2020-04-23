@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Product } from 'src/app/models/Product';
+import { MatDialog } from '@angular/material';
+import { ProductDetailComponent } from '../product-detail/product-detail.component';
 
 @Component({
   selector: 'app-product-card',
@@ -10,9 +12,19 @@ export class ProductCardComponent implements OnInit {
 
   @Input() product:Product;
 
-  constructor() { }
+  constructor(
+    private dialog:MatDialog
+  ) { }
 
   ngOnInit() {
+  }
+
+  details(product:Product): void {
+    const dialogRef = this.dialog.open(ProductDetailComponent, {
+      width: '650px',
+      height: '650px',
+      data: product
+    });
   }
 
 }

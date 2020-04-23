@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MattressService } from 'src/app/services/mattress.service';
+import { Mattress } from 'src/app/models/Mattress';
 
 @Component({
   selector: 'app-mattress',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MattressComponent implements OnInit {
 
-  constructor() { }
+  mattresses:Mattress[] = [];
+  tipe:number = 1;
+
+  constructor(
+    private mattressService:MattressService
+  ) { }
 
   ngOnInit() {
+    this.getMattresses();
+  }
+
+  getMattresses(){
+    this.mattressService.getMattresses().subscribe(
+      res => this.mattresses = res
+    )
   }
 
 }

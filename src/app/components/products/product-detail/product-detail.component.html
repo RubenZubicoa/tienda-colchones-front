@@ -1,0 +1,9 @@
+<h1 mat-dialog-title>{{data.title}}</h1>
+<div mat-dialog-content>
+    <img class="img-fluid" [src]="data.image" alt="product image">
+  <p>{{data.description}}</p>
+  <h3 class="price">{{data.price + '€'}}</h3>
+</div>
+<div mat-dialog-actions>
+  <button class="btn btn-primary btn-block" [mat-dialog-close]="" cdkFocusInitial>Ok</button>
+</div>
