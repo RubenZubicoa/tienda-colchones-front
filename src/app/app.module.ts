@@ -1,6 +1,6 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 //Angular material
 import { MaterialModule } from "./material-module";
@@ -14,6 +14,11 @@ import { MattressComponent } from "./components/mattress/mattress.component";
 import { MattressDetailComponent } from "./components/mattress-detail/mattress-detail.component";
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { ProductCardComponent } from './components/products/product-card/product-card.component';
+
+import { AuthGuard } from './auth.guard';
+// TOKEN INTERCEPTOR
+import { TokenInterceptorService } from './services/token-interceptor.service';
+
 
 @NgModule({
   declarations: [
@@ -34,7 +39,14 @@ import { ProductCardComponent } from './components/products/product-card/product
     ReactiveFormsModule,
     MaterialModule
   ],
-  providers: [],
+  providers: [
+    AuthGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

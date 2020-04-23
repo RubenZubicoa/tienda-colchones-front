@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-sidenav',
@@ -11,7 +12,9 @@ export class SidenavComponent implements OnInit {
   mode = new FormControl('side');  
   panelOpenState = false;
 
-  constructor() { }
+  constructor(
+    private usersService:UsersService
+  ) { }
 
   ngOnInit() {
   }

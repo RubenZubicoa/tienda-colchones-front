@@ -1,14 +1,37 @@
-<div class="mat-elevation-z8 main" style="width: 30%;">
-  <form>
-    <mat-form-field>
-      <mat-label>Email address</mat-label>
-      <input matInput placeholder="email" type="email" />
-    </mat-form-field>
+<div class="row">
+  <div class="col-md-4 mx-auto">
+    <div class="card">
+      <div class="card-header">
+        Login
+      </div>
+      <div class="card-body">
+        <form (submit)="signin($event)">
+          <mat-form-field>
+            <mat-label>Email address</mat-label>
+            <input
+              matInput
+              placeholder="email"
+              name="email"
+              [(ngModel)]="user.email"
+              type="email"
+            />
+          </mat-form-field>
 
-    <mat-form-field>
-      <mat-label>Password</mat-label>
-      <input matInput placeholder="Password" type="password" />
-    </mat-form-field>
-    <button class="btn btn-primary btn-block">Sign in</button>
-  </form>
+          <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input
+              matInput
+              placeholder="Password"
+              name="password"
+              [(ngModel)]="user.password"
+              type="password"
+            />
+          </mat-form-field>
+          <button class="btn btn-primary btn-block" type="submit">
+            Sign in
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>

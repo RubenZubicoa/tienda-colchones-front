@@ -2,8 +2,22 @@
   <mat-toolbar-row>
     <span>Custom Toolbar</span>
     <span class="example-spacer"></span>
-    <button mat-button  matTooltip="Home page" routerLink="/"><mat-icon>home</mat-icon></button>
-    <button mat-button  matTooltip="Login" routerLink="/login"><mat-icon>group</mat-icon></button>
+
+    <button mat-button matTooltip="Home page" routerLink="/">
+      <mat-icon>home</mat-icon>
+    </button>
+
+    <ng-container *ngIf="!usersService.leggedIn(); else loggedIn">      
+      <button mat-button matTooltip="Login" routerLink="/login">
+        <mat-icon>group</mat-icon>
+      </button>
+    </ng-container>
+    <ng-template #loggedIn>
+      <button mat-button matTooltip="Logout" (click)="usersService.logout()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </ng-template>
+
   </mat-toolbar-row>
 </mat-toolbar>
 <mat-sidenav-container class="example-container" color="primary">
@@ -17,7 +31,7 @@
       <mat-icon>close</mat-icon>
     </button>
 
-    <button mat-raised-button routerLink='/colchones' routerLinkActive="active">
+    <button mat-raised-button routerLink="/colchones" routerLinkActive="active">
       <mat-icon>share</mat-icon>
       <span>Colchones</span>
     </button>
@@ -25,7 +39,6 @@
       <mat-icon>share</mat-icon>
       <span>Somieres</span>
     </button>
-
   </mat-sidenav>
   <mat-sidenav-content style="height: 92vh;">
     <button mat-icon-button (click)="sidenav.toggle()">

@@ -7,6 +7,9 @@ import { SigninComponent } from './components/signin/signin.component';
 import { MattressComponent } from './components/mattress/mattress.component';
 import { MattressDetailComponent } from './components/mattress-detail/mattress-detail.component';
 
+// Auth guard
+import { AuthGuard } from './auth.guard';
+
 
 const routes: Routes = [
   {
@@ -19,7 +22,8 @@ const routes: Routes = [
   },
   {
     path:'colchones',
-    component:MattressComponent
+    component:MattressComponent,
+    canActivate: [AuthGuard]
   },
   {
     path:'colchones/:id',
