@@ -14,7 +14,8 @@ export class AuthGuard implements CanActivate {
   ){}
 
   canActivate():boolean{
-    if(this.usersService.leggedIn()){
+    if(this.usersService.leggedIn()){      
+      this.usersService.getUser(localStorage.getItem('userId'))
       return true;
     }
     this.router.navigate(['/login']);

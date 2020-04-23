@@ -19,6 +19,7 @@ import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { ProductsListComponent } from './components/products-list/products-list.component';
 import { ProductDetailComponent } from './components/products/product-detail/product-detail.component';
+import { BoxSpringComponent } from './components/box-spring/box-spring.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { ProductDetailComponent } from './components/products/product-detail/pro
     ProductCardComponent,
     ProductsListComponent,
     ProductDetailComponent,
+    BoxSpringComponent,
   ],
   imports: [
     BrowserModule,

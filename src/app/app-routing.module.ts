@@ -5,10 +5,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { ProductsComponent } from './components/products/products.component';
 import { SigninComponent } from './components/signin/signin.component';
 import { MattressComponent } from './components/mattress/mattress.component';
-import { MattressDetailComponent } from './components/mattress-detail/mattress-detail.component';
 
 // Auth guard
 import { AuthGuard } from './auth.guard';
+import { BoxSpringComponent } from './components/box-spring/box-spring.component';
 
 
 const routes: Routes = [
@@ -26,8 +26,9 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path:'colchones/:id',
-    component:MattressDetailComponent
+    path:'somieres',
+    component:BoxSpringComponent,
+    canActivate: [AuthGuard]
   }
 ];
 

@@ -8,6 +8,11 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class UsersService {
+
+  user:User = {
+    email:null,
+    password:null
+  };
   
   API_URI:string = 'http://localhost:3000/users'
 
@@ -20,6 +25,10 @@ export class UsersService {
     return this.http.post<any>(`${this.API_URI}/signin`, user)
   }
 
+  getUser(id:string){
+    this.http.get<User>(`${this.API_URI}/${id}`).subscribe(res => this.user = res)
+  }
+
   leggedIn(): boolean{
     return !!localStorage.getItem('token')
   }
@@ -30,6 +39,7 @@ export class UsersService {
 
   logout(){
     localStorage.removeItem('token');
+    localStorage.removeItem('userId')
     this.router.navigate(['/login'])
   }
 }

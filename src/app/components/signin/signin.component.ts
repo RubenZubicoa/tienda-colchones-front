@@ -28,6 +28,7 @@ export class SigninComponent implements OnInit {
     this.usersService.signin(this.user).subscribe(
       res => {
         localStorage.setItem('token', res.token)
+        localStorage.setItem('userId', res.user._id)
         this.router.navigate(['/colchones'])
       }
     )
