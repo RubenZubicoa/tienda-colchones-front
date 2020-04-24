@@ -10,7 +10,7 @@ import { Mattress } from 'src/app/models/Mattress';
 export class MattressComponent implements OnInit {
 
   mattresses:Mattress[] = [];
-  tipe:number = 1;
+  type:number = 1;
 
   constructor(
     private mattressService:MattressService
@@ -24,6 +24,10 @@ export class MattressComponent implements OnInit {
     this.mattressService.getMattresses().subscribe(
       res => this.mattresses = res
     )
+  }
+
+  deleteMattress(element){
+    this.mattressService.deleteMattress(element._id).subscribe(res => this.getMattresses())
   }
 
 }

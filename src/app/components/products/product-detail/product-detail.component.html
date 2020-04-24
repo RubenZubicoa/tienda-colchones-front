@@ -1,6 +1,6 @@
 <h1 mat-dialog-title>{{data.title}}</h1>
 <div mat-dialog-content>
-    <img class="img-fluid" [src]="data.image" alt="product image">
+    <img class="img-fluid" [src]="data.image || 'assets/img/no-image-icon.png'" alt="product image">
   <p>{{data.description}}</p>
   <h3 class="price">{{data.price + '€'}}</h3>
 </div>

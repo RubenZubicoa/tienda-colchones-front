@@ -3,7 +3,7 @@
       <mat-card-title>{{product.title}}</mat-card-title>
     </mat-card-header>    
     <mat-card-content>
-      <img class="img-fluid" mat-card-image [src]="product.image" alt="product image">
+      <img class="img-fluid" mat-card-image [src]="product.image || 'assets/img/no-image-icon.png'" alt="product image">
       <h3 class="price">{{product.price + '€'}}</h3>
     </mat-card-content>
     <mat-card-actions>

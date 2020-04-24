@@ -14,8 +14,8 @@ export class ProductsListComponent implements OnInit, OnChanges {
   @ViewChild(MatSort, {static:false, read:false}) sort:MatSort;
 
   @Input() products:Product[];
-  // tipe 1: Mattress, tipe 2: box spring
-  @Input() tipe:number;
+  // type 1: Mattress, tipe 2: box spring
+  @Input() type:number;
 
   @Output()
   delete = new EventEmitter<Product>();

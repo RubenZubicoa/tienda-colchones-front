@@ -13,13 +13,17 @@ import { SigninComponent } from "./components/signin/signin.component";
 import { MattressComponent } from "./components/mattress/mattress.component";
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { ProductCardComponent } from './components/products/product-card/product-card.component';
+import { ProductsListComponent } from './components/products-list/products-list.component';
+import { ProductDetailComponent } from './components/products/product-detail/product-detail.component';
+import { BoxSpringComponent } from './components/box-spring/box-spring.component';
+import { MattressDetailComponent } from './components/mattress/mattress-detail/mattress-detail.component';
 
 import { AuthGuard } from './auth.guard';
 // TOKEN INTERCEPTOR
 import { TokenInterceptorService } from './services/token-interceptor.service';
-import { ProductsListComponent } from './components/products-list/products-list.component';
-import { ProductDetailComponent } from './components/products/product-detail/product-detail.component';
-import { BoxSpringComponent } from './components/box-spring/box-spring.component';
+import { UpdateProductComponent } from './components/update-product/update-product.component';
+
+
 
 
 @NgModule({
@@ -33,6 +37,8 @@ import { BoxSpringComponent } from './components/box-spring/box-spring.component
     ProductsListComponent,
     ProductDetailComponent,
     BoxSpringComponent,
+    MattressDetailComponent,
+    UpdateProductComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,7 +58,8 @@ import { BoxSpringComponent } from './components/box-spring/box-spring.component
     }
   ],
   entryComponents:[
-    ProductDetailComponent
+    ProductDetailComponent,
+    UpdateProductComponent
   ],
   bootstrap: [AppComponent],
 })

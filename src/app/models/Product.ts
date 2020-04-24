@@ -6,7 +6,7 @@
     price:number;
 } */
 export class Product{
-    _id:string;
+    _id?:string;
     title:string;
     image:string;
     description:string;

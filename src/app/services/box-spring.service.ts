@@ -16,7 +16,7 @@ export class BoxSpringService {
     return this.http.get<BoxSpring[]>(`${this.API_URI}`);
   }
 
-  getSpringBoxes():Observable<any>{
+  getSpringBoxes():Observable<BoxSpring[]>{
     return this.http.get<BoxSpring[]>(`${this.API_URI}/private`)
   }
 

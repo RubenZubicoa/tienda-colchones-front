@@ -21,4 +21,16 @@ export class MattressService {
   getMattresses():Observable<Mattress[]>{
     return this.http.get<Mattress[]>(`${this.API_URI}/private`)
   }
+
+  deleteMattress(id:string){
+    return this.http.delete(`${this.API_URI}/private/${id}`)
+  }
+
+  getMattress(id:string):Observable<Mattress>{
+    return this.http.get<Mattress>(`${this.API_URI}/private/${id}`)
+  }
+
+  updateMattress(id:string, mattress:Mattress):Observable<any>{
+    return this.http.put<any>(`${this.API_URI}/private/${id}`, mattress)
+  }
 }

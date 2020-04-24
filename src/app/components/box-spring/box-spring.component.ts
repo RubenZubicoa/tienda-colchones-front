@@ -12,7 +12,7 @@ import { isNull } from 'util';
 export class BoxSpringComponent implements OnInit {
 
   springBoxes:BoxSpring[] = [];
-  tipe:number = 2;
+  type:number = 2;
 
   constructor(
     private boxSpringService:BoxSpringService,
@@ -26,7 +26,7 @@ export class BoxSpringComponent implements OnInit {
   getSpringBoxes(){
     this.boxSpringService.getSpringBoxes().subscribe(
       res => {
-        this.springBoxes = res.data;
+        this.springBoxes = res;
       }
     )
   }
