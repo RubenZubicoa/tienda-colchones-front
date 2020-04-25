@@ -3,6 +3,7 @@
         <mat-tab label="Colchones">
             <div class="main mat-elevation-z8">        
                 <div class="row">
+                    <!--Featured mattresses-->
                     <div class="col-md-4 mt-2" *ngFor="let item of mattresses">
                         <app-product-card [product]="item"></app-product-card>
                     </div>
@@ -12,6 +13,7 @@
         <mat-tab label="Somieres">
             <div class="main mat-elevation-z8">        
                 <div class="row">
+                    <!--Featured spring boxes-->
                     <div class="col-md-4 mt-2" *ngFor="let item of springBoxes">
                         <app-product-card [product]="item"></app-product-card>
                     </div>

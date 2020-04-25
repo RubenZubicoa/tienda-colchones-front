@@ -12,19 +12,20 @@ export class MattressComponent implements OnInit {
   mattresses: Mattress[] = [];
   type: number = 1;
 
+  pageIndex:number = 1;
+
   constructor(
     private mattressService: MattressService,
     private snackBar: MatSnackBar
   ) {}
 
   ngOnInit() {
-    this.getMattresses();
   }
 
   // GET data for the table of products list
   getMattresses() {
     this.mattressService
-      .getMattresses()
+      .getMattresses(this.pageIndex)
       .subscribe((res) => (this.mattresses = res));
   }
 
@@ -41,5 +42,9 @@ export class MattressComponent implements OnInit {
       this.getMattresses();
       this.snackBar.open(res.Message, "", { duration: 2000 });
     });
+  }
+
+  onChangePage(page){
+    this.pageIndex = page
   }
 }

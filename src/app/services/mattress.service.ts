@@ -18,8 +18,8 @@ export class MattressService {
     return this.http.get<Mattress[]>(`${this.API_URI}`)
   }
 
-  getMattresses():Observable<Mattress[]>{
-    return this.http.get<Mattress[]>(`${this.API_URI}/private`)
+  getMattresses(page:number):Observable<Mattress[]>{
+    return this.http.get<Mattress[]>(`${this.API_URI}/private/${page}`)
   }
 
   deleteMattress(id:string):Observable<any>{
@@ -36,5 +36,9 @@ export class MattressService {
 
   createMattress(mattress:Mattress):Observable<any>{
     return this.http.post<any>(`${this.API_URI}/private`, mattress)
+  }
+
+  getCountMattresses():Observable<number>{
+    return this.http.get<number>(`${this.API_URI}/count`)
   }
 }

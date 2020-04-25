@@ -16,8 +16,8 @@ export class BoxSpringService {
     return this.http.get<BoxSpring[]>(`${this.API_URI}`);
   }
 
-  getSpringBoxes():Observable<BoxSpring[]>{
-    return this.http.get<BoxSpring[]>(`${this.API_URI}/private`)
+  getSpringBoxes(page:number):Observable<BoxSpring[]>{
+    return this.http.get<BoxSpring[]>(`${this.API_URI}/private/${page}`)
   }
 
   deleteBoxSpring(id:string):Observable<any>{
@@ -34,5 +34,9 @@ export class BoxSpringService {
 
   createBoxSpring(boxSpring:BoxSpring):Observable<any>{
     return this.http.post<any>(`${this.API_URI}/private`, boxSpring)
+  }
+
+  getCountSpringBoxes():Observable<number>{
+    return this.http.get<number>(`${this.API_URI}/count`)
   }
 }

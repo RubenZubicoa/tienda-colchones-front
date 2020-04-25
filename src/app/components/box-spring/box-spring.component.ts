@@ -14,6 +14,8 @@ export class BoxSpringComponent implements OnInit {
 
   springBoxes:BoxSpring[] = [];
   type:number = 2;
+  // Page index of the table of products list
+  pageIndex:number = 1;
 
   constructor(
     private boxSpringService:BoxSpringService,
@@ -21,12 +23,11 @@ export class BoxSpringComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getSpringBoxes();    
   }
 
   // GET data for the table of products list
   getSpringBoxes(){
-    this.boxSpringService.getSpringBoxes().subscribe(
+    this.boxSpringService.getSpringBoxes(this.pageIndex).subscribe(
       res => {
         this.springBoxes = res;
       }
@@ -52,5 +53,12 @@ export class BoxSpringComponent implements OnInit {
       }
     )
   }
+
+  onChangePage(page){
+    this.pageIndex = page
+  }
+
+  
+  
 
 }
