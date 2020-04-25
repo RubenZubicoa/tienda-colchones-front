@@ -20,11 +20,19 @@ export class BoxSpringService {
     return this.http.get<BoxSpring[]>(`${this.API_URI}/private`)
   }
 
-  createBoxSpring(boxSpring:BoxSpring){
-    return this.http.post(`${this.API_URI}/private`, boxSpring);
+  deleteBoxSpring(id:string):Observable<any>{
+    return this.http.delete<any>(`${this.API_URI}/private/${id}`)
   }
 
-  deleteBoxSpring(id:string){
-    return this.http.delete(`${this.API_URI}/${id}`)
+  getBoxSpring(id:string):Observable<BoxSpring>{
+    return this.http.get<BoxSpring>(`${this.API_URI}/private/${id}`)
+  }
+
+  updateBoxSpring(id:string, boxSpring:BoxSpring):Observable<any>{
+    return this.http.put<any>(`${this.API_URI}/private/${id}`, boxSpring)
+  }
+
+  createBoxSpring(boxSpring:BoxSpring):Observable<any>{
+    return this.http.post<any>(`${this.API_URI}/private`, boxSpring)
   }
 }

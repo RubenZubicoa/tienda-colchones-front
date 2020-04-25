@@ -10,6 +10,7 @@ import { MattressComponent } from './components/mattress/mattress.component';
 import { AuthGuard } from './auth.guard';
 import { BoxSpringComponent } from './components/box-spring/box-spring.component';
 import { MattressDetailComponent } from './components/mattress/mattress-detail/mattress-detail.component';
+import { BoxSpringDetailComponent } from './components/box-spring/box-spring-detail/box-spring-detail.component';
 
 
 const routes: Routes = [
@@ -28,11 +29,17 @@ const routes: Routes = [
   },
   {
     path:'colchones/:id',
-    component:MattressDetailComponent
+    component:MattressDetailComponent,
+    canActivate: [AuthGuard]
   },
   {
     path:'somieres',
     component:BoxSpringComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path:'somieres/:id',
+    component: BoxSpringDetailComponent,
     canActivate: [AuthGuard]
   }
 ];

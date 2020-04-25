@@ -3,6 +3,7 @@ import { BoxSpring } from 'src/app/models/BoxSpring';
 import { BoxSpringService } from 'src/app/services/box-spring.service';
 import { UsersService } from 'src/app/services/users.service';
 import { isNull } from 'util';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-box-spring',
@@ -16,7 +17,7 @@ export class BoxSpringComponent implements OnInit {
 
   constructor(
     private boxSpringService:BoxSpringService,
-    private usersService:UsersService
+    private snackBar:MatSnackBar
   ) { }
 
   ngOnInit() {
@@ -35,6 +36,16 @@ export class BoxSpringComponent implements OnInit {
     this.boxSpringService.deleteBoxSpring(element._id).subscribe(
       res => {
         this.getSpringBoxes();
+        this.snackBar.open(res.Message, '', {duration:2000})
+      }
+    )
+  }
+
+  createBoxSpring(element){
+    this.boxSpringService.createBoxSpring(element).subscribe(
+      res => {
+        this.getSpringBoxes();
+        this.snackBar.open(res.Message, '', {duration:2000})
       }
     )
   }

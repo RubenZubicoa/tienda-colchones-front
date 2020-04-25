@@ -1,4 +1,5 @@
 <div class="main mat-elevation-z8">
+    <button mat-raised-button color="primary" (click)="addNewProduct()">Introducir nuevo producto</button>
     <mat-form-field class="search-form-field">
         <input matInput [(ngModel)]="searchKey" placeholder="Introduce un filtro" (keyup)="applyFilter()" autocomplete="off" />
         <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey" (click)="onSearchClear()">
@@ -29,7 +30,7 @@
                 <h5></h5>
             </th>
             <td mat-cell *matCellDef="let element">
-                <button mat-icon-button *ngIf="type == 1" [routerLink]="['/colchones', element._id]">
+                <button mat-icon-button [routerLink]=" type == 1 ? ['/colchones', element._id] : ['/somieres', element._id]">
                     <mat-icon>visibility</mat-icon>
                 </button>
                 <button mat-icon-button color="warn" (click)="deleteProduct(element)" *ngIf="usersService.user.admin">

@@ -22,6 +22,7 @@ import { AuthGuard } from './auth.guard';
 // TOKEN INTERCEPTOR
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { UpdateProductComponent } from './components/update-product/update-product.component';
+import { BoxSpringDetailComponent } from './components/box-spring/box-spring-detail/box-spring-detail.component';
 
 
 
@@ -39,6 +40,7 @@ import { UpdateProductComponent } from './components/update-product/update-produ
     BoxSpringComponent,
     MattressDetailComponent,
     UpdateProductComponent,
+    BoxSpringDetailComponent,
   ],
   imports: [
     BrowserModule,
