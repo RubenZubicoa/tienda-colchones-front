@@ -11,6 +11,8 @@ import { UpdateProductComponent } from '../update-product/update-product.compone
   styleUrls: ['./products-list.component.less']
 })
 export class ProductsListComponent implements OnInit, OnChanges {
+  
+  // paginator and sort
   @ViewChild(MatPaginator, {static:false, read:false}) paginator:MatPaginator;
   @ViewChild(MatSort, {static:false, read:false}) sort:MatSort;
 
@@ -18,13 +20,17 @@ export class ProductsListComponent implements OnInit, OnChanges {
   // type 1: Mattress, tipe 2: box spring
   @Input() type:number;
 
+  // emitter delete button
   @Output()
   delete = new EventEmitter<Product>();
 
+  // emitter create button
   @Output()
   create = new EventEmitter<Product>();
 
+  // data of the table
   dataSource = new MatTableDataSource<Product>();
+  // filter
   searchKey:string;
 
   displayedColumns = ['title', 'price', 'acciones'];
@@ -35,10 +41,14 @@ export class ProductsListComponent implements OnInit, OnChanges {
     price:null,
     title:null
   };
+  isLoadingResults: boolean;
+  isRateLimitReached: boolean;
+  resultsLength: any;
 
   constructor(
     private usersService:UsersService,
-    private dialog:MatDialog
+    private dialog:MatDialog,
+    private mattressService:MattressService
   ) { }
 
   ngOnInit() {
@@ -89,5 +99,9 @@ export class ProductsListComponent implements OnInit, OnChanges {
     this.searchKey = "";
     this.applyFilter();
   }
-
 }
+
+ 
+
+
+

@@ -23,6 +23,7 @@ export class SigninComponent implements OnInit {
   ngOnInit() {
   }
 
+  // POST sign in
   signin(event){
     event.preventDefault();
     this.usersService.signin(this.user).subscribe(

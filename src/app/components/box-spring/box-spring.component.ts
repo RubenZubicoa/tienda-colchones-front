@@ -24,6 +24,7 @@ export class BoxSpringComponent implements OnInit {
     this.getSpringBoxes();    
   }
 
+  // GET data for the table of products list
   getSpringBoxes(){
     this.boxSpringService.getSpringBoxes().subscribe(
       res => {
@@ -32,6 +33,7 @@ export class BoxSpringComponent implements OnInit {
     )
   }
 
+  // DELETE one box spring
   deleteBoxSpring(element) {
     this.boxSpringService.deleteBoxSpring(element._id).subscribe(
       res => {
@@ -41,6 +43,7 @@ export class BoxSpringComponent implements OnInit {
     )
   }
 
+  // CREATE a box spring
   createBoxSpring(element){
     this.boxSpringService.createBoxSpring(element).subscribe(
       res => {

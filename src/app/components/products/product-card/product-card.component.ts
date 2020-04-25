@@ -19,6 +19,7 @@ export class ProductCardComponent implements OnInit {
   ngOnInit() {
   }
 
+  // show product datail modal
   details(product:Product): void {
     const dialogRef = this.dialog.open(ProductDetailComponent, {
       width: '650px',

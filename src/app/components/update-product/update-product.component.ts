@@ -16,6 +16,7 @@ export class UpdateProductComponent implements OnInit {
   ngOnInit() {
   }
 
+  // send the data of product
   save(title, image, description, price){
     this.data.title = title;
     this.data.image = image;

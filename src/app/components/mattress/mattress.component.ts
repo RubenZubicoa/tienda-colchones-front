@@ -21,19 +21,21 @@ export class MattressComponent implements OnInit {
     this.getMattresses();
   }
 
+  // GET data for the table of products list
   getMattresses() {
     this.mattressService
       .getMattresses()
       .subscribe((res) => (this.mattresses = res));
   }
 
+  // DELETE mattress
   deleteMattress(element) {
     this.mattressService.deleteMattress(element._id).subscribe((res) => {
       this.getMattresses();
       this.snackBar.open(res.Message, "", { duration: 2000 });
     });
   }
-
+  // CREATE a mattress
   createMattress(element) {
     this.mattressService.createMattress(element).subscribe((res) => {
       this.getMattresses();
